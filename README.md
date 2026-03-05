@@ -4,7 +4,7 @@ A collection of creative and interactive HTML projects showcasing modern web dev
 
 ## 🚀 Projects
 
-### 🌤️ [Aether Civilization](Aether%20Civilization.html)
+### 🌤️ [Aether Civilization](/HTML/Aether%20Civilization.html)
 A futuristic, immersive landing page for a sky-based civilization featuring:
 - Glassmorphism design with stunning visual effects
 - Smooth animations and micro-interactions
@@ -12,7 +12,7 @@ A futuristic, immersive landing page for a sky-based civilization featuring:
 - Responsive layout with mobile optimization
 - Sci-fi themed color palette and typography
 
-### 📊 [GlobalEcon](GlobalEcon.html)
+### 📊 [GlobalEcon](/HTML/GlobalEcon.html)
 A professional data visualization and research dashboard including:
 - Interactive charts and graphs
 - Clean, modern UI with Tailwind CSS
@@ -20,7 +20,7 @@ A professional data visualization and research dashboard including:
 - Professional color scheme
 - Data presentation components
 
-### 🏠 [HomeLab Projects](HomeLabProjects.html)
+### 🏠 [HomeLab Projects](/HTML/HomeLabProjects.html)
 A comprehensive showcase of home laboratory projects and ideas:
 - 15+ home lab project ideas for 2026
 - Interactive project cards with hover effects
@@ -29,7 +29,7 @@ A comprehensive showcase of home laboratory projects and ideas:
 - Smooth scrolling and animations
 - Project categorization and filtering
 
-### 🎯 [Landing Templates](Landing%20Templates.html)
+### 🎯 [Landing Templates](/HTML/Landing%20Templates.html)
 A versatile collection of landing page templates and design systems:
 - Multiple landing page layouts
 - Design system components
