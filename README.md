@@ -29,7 +29,7 @@ A comprehensive showcase of home laboratory projects and ideas:
 - Smooth scrolling and animations
 - Project categorization and filtering
 
-### 🎯 [Landing Templates](/HTML/Landing%20Templates.html)
+### 🎯 [NexusUI Templates](/HTML/NexusUI%20Templates.html)
 A versatile collection of landing page templates and design systems:
 - Multiple landing page layouts
 - Design system components
