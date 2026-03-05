@@ -63,9 +63,9 @@
     }
     
     .glass-panel-dark {
-      background: rgba(23, 23, 23, 0.95);
+      background: rgba(30, 35, 48, 0.98);
       backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
     
     .card-hover {
@@ -106,30 +106,30 @@
     }
     
     .code-block {
-      background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+      background: linear-gradient(135deg, #1a1f2e 0%, #242b3d 100%);
       border-radius: 16px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
     
     .code-block pre {
       padding: 1.5rem;
       overflow-x: auto;
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.7;
       font-family: 'JetBrains Mono', 'Fira Code', monospace;
     }
     
     .code-block code {
-      color: #e6edf3;
+      color: #e2e8f0;
     }
     
-    .yaml-key { color: #79c0ff; }
-    .yaml-value { color: #a5d6ff; }
-    .yaml-string { color: #7ee787; }
-    .yaml-comment { color: #8b949e; }
-    .yaml-number { color: #ffa657; }
-    .yaml-colon { color: #e6edf3; }
+    .yaml-key { color: #7dd3fc; font-weight: 600; }
+    .yaml-value { color: #c4b5fd; }
+    .yaml-string { color: #86efac; }
+    .yaml-comment { color: #64748b; font-style: italic; }
+    .yaml-number { color: #fdba74; }
+    .yaml-colon { color: #94a3b8; }
     
     .grid-bg {
       background-size: 50px 50px;
@@ -168,23 +168,53 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 5px 12px;
-      background: rgba(193, 255, 114, 0.12);
-      color: #3d5a0a;
+      padding: 6px 14px;
+      background: rgba(193, 255, 114, 0.2);
+      color: #2d4a0a;
       border-radius: 20px;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      border: 1px solid rgba(193, 255, 114, 0.3);
     }
     
-    .difficulty-easy { background: rgba(34, 197, 94, 0.12); color: #166534; }
-    .difficulty-medium { background: rgba(234, 179, 8, 0.15); color: #854d0e; }
-    .difficulty-hard { background: rgba(239, 68, 68, 0.12); color: #991b1b; }
+    .difficulty-easy { background: rgba(34, 197, 94, 0.2); color: #14532d; border: 1px solid rgba(34, 197, 94, 0.4); }
+    .difficulty-medium { background: rgba(234, 179, 8, 0.2); color: #713f12; border: 1px solid rgba(234, 179, 8, 0.4); }
+    .difficulty-hard { background: rgba(239, 68, 68, 0.2); color: #7f1d1d; border: 1px solid rgba(239, 68, 68, 0.4); }
     
-    .difficulty-easy .icon { color: #22c55e; }
-    .difficulty-medium .icon { color: #eab308; }
-    .difficulty-hard .icon { color: #ef4444; }
+    .difficulty-easy .icon { color: #15803d; }
+    .difficulty-medium .icon { color: #a16207; }
+    .difficulty-hard .icon { color: #b91c1c; }
+    
+    /* Modal tag styles for dark background */
+    .glass-panel-dark .tag {
+      background: rgba(193, 255, 114, 0.15);
+      color: #c1ff72;
+      border: 1px solid rgba(193, 255, 114, 0.4);
+    }
+    
+    .glass-panel-dark .difficulty-easy {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.4);
+    }
+    
+    .glass-panel-dark .difficulty-medium {
+      background: rgba(234, 179, 8, 0.15);
+      color: #facc15;
+      border: 1px solid rgba(234, 179, 8, 0.4);
+    }
+    
+    .glass-panel-dark .difficulty-hard {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+    }
+    
+    .glass-panel-dark .difficulty-easy .icon { color: #4ade80; }
+    .glass-panel-dark .difficulty-medium .icon { color: #facc15; }
+    .glass-panel-dark .difficulty-hard .icon { color: #f87171; }
     
     .hero-gradient {
       background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 50%, #f0f5e8 100%);
@@ -231,13 +261,78 @@
       100% { opacity: 1; transform: scale(1) translateY(0); }
     }
 
-    /* Copy button animation */
-    .copy-btn {
+  /* Updated Modal CSS */
+    .modal-tab {
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
       transition: all 0.2s ease;
+      color: rgba(255,255,255,0.7);
+      background: transparent;
+      border: none;
+      cursor: pointer;
     }
     
-    .copy-btn.copied {
-      background: #22c55e !important;
+    .modal-tab:hover {
+      color: white;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .modal-tab.active {
+      color: #c1ff72;
+      background: rgba(193,255,114,0.2);
+      font-weight: 600;
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .info-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    
+    .info-card:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.2);
+    }
+    
+    .step-item {
+      display: flex;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .step-item:last-child {
+      border-bottom: none;
+    }
+    
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #c1ff72 0%, #9be03a 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #1a2e00;
+      flex-shrink: 0;
     }
   </style>
 </head>
@@ -261,14 +356,12 @@
         HomeLab Ideas - By NishNinjaDev / NishantGits
       </a>
       <div class="hidden md:flex items-center gap-6">
-        <a href="#ideas" class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">Projects</a>
         <a href="#quickstart" class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">Quick Start</a>
-        <a href="#trending" class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-1">
-          <iconify-icon icon="lucide:trending-up" class="text-brand-lime"></iconify-icon>
-          2026 Trending
-        </a>
-        <a href="#" class="px-5 py-2.5 bg-stone-900 text-brand-lime rounded-full text-sm font-semibold hover:bg-stone-800 transition-all shadow-lg shadow-stone-900/20">
-          Get Started
+        <a href="#prerequisites" class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">Prerequisites</a>
+        <a href="#troubleshooting" class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">Troubleshooting</a>
+        <a href="#projects" class="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-1">
+          <iconify-icon icon="lucide:folder-open" class="text-brand-lime"></iconify-icon>
+          2026 Projects
         </a>
       </div>
     </div>
@@ -441,40 +534,270 @@
     </div>
   </section>
   
-  <!-- Trending 2026 Section -->
-  <section id="trending" class="py-16 bg-gradient-to-b from-stone-900 to-stone-800 relative overflow-hidden">
+  <!-- Prerequisites Section -->
+  <section id="prerequisites" class="py-20 bg-gradient-to-b from-white to-neutral-100 relative">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16">
+        <span class="tag mb-4 inline-block">Before You Start</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-semibold tracking-tight mb-4">
+          Prerequisites & System Requirements
+        </h2>
+        <p class="text-stone-600 text-lg max-w-2xl mx-auto">
+          Ensure your system meets these requirements before deploying any home lab applications
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div class="glass-panel rounded-2xl p-6 card-hover">
+          <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center mb-4">
+            <iconify-icon icon="lucide:server" class="text-2xl text-blue-600"></iconify-icon>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Hardware</h3>
+          <ul class="text-sm text-stone-600 space-y-2">
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>2+ CPU cores (4+ recommended)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>4GB+ RAM (8GB+ for multiple apps)</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>20GB+ free disk space</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="glass-panel rounded-2xl p-6 card-hover">
+          <div class="w-14 h-14 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center mb-4">
+            <iconify-icon icon="lucide:terminal" class="text-2xl text-purple-600"></iconify-icon>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Operating System</h3>
+          <ul class="text-sm text-stone-600 space-y-2">
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>Ubuntu 20.04/22.04 LTS</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>Debian 11/12</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>CentOS/RHEL 8+ or Alpine</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="glass-panel rounded-2xl p-6 card-hover">
+          <div class="w-14 h-14 bg-gradient-to-br from-orange-100 to-orange-200 rounded-xl flex items-center justify-center mb-4">
+            <iconify-icon icon="lucide:network" class="text-2xl text-orange-600"></iconify-icon>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">Network</h3>
+          <ul class="text-sm text-stone-600 space-y-2">
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>Static IP address</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>Open ports 80, 443</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>Domain name (optional)</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="glass-panel rounded-2xl p-6 card-hover">
+          <div class="w-14 h-14 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center mb-4">
+            <iconify-icon icon="lucide:shield" class="text-2xl text-green-600"></iconify-icon>
+          </div>
+          <h3 class="font-semibold text-lg mb-2">SSH Access</h3>
+          <ul class="text-sm text-stone-600 space-y-2">
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>SSH key authentication</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>Sudo privileges</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <iconify-icon icon="lucide:check" class="text-green-500 mt-0.5 flex-shrink-0"></iconify-icon>
+              <span>Terminal/SSH client</span>
+            </li>
+          </ul>
+        </div>
+    </div>
+  </section>
+  
+  <!-- Troubleshooting Section -->
+  <section id="troubleshooting" class="py-20 bg-white relative">
+    <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <div class="text-center mb-16">
+        <span class="tag mb-4 inline-block">Problem Solving</span>
+        <h2 class="font-display text-3xl lg:text-5xl font-semibold tracking-tight mb-4">
+          Troubleshooting Common Issues
+        </h2>
+        <p class="text-stone-600 text-lg max-w-2xl mx-auto">
+          Solutions to frequent problems you might encounter during installation and deployment
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Issue 1 -->
+        <div class="glass-panel rounded-2xl p-6 border-l-4 border-red-400">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="lucide:x-circle" class="text-2xl text-red-600"></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-lg mb-2 text-red-700">"Permission denied" when running docker</h3>
+              <p class="text-sm text-stone-600 mb-3">Docker requires root privileges or membership in the docker group.</p>
+              <div class="bg-stone-100 rounded-xl p-4 border border-stone-200">
+                <p class="text-xs font-semibold text-stone-700 mb-2">Solution:</p>
+                <code class="text-sm text-green-700 font-mono block">sudo usermod -aG docker $USER && newgrp docker</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Issue 2 -->
+        <div class="glass-panel rounded-2xl p-6 border-l-4 border-orange-400">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="lucide:alert-triangle" class="text-2xl text-orange-600"></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-lg mb-2 text-orange-700">Port already in use error</h3>
+              <p class="text-sm text-stone-600 mb-3">Another service is using the required port.</p>
+              <div class="bg-stone-100 rounded-xl p-4 border border-stone-200">
+                <p class="text-xs font-semibold text-stone-700 mb-2">Solution:</p>
+                <code class="text-sm text-green-700 font-mono block">sudo lsof -i :PORT<br>sudo systemctl stop SERVICE</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Issue 3 -->
+        <div class="glass-panel rounded-2xl p-6 border-l-4 border-yellow-400">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="lucide:hard-drive" class="text-2xl text-yellow-600"></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-lg mb-2 text-yellow-700">Out of disk space</h3>
+              <p class="text-sm text-stone-600 mb-3">Docker images and volumes consuming too much space.</p>
+              <div class="bg-stone-100 rounded-xl p-4 border border-stone-200">
+                <p class="text-xs font-semibold text-stone-700 mb-2">Solution:</p>
+                <code class="text-sm text-green-700 font-mono block">docker system prune -a<br>docker volume prune</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Issue 4 -->
+        <div class="glass-panel rounded-2xl p-6 border-l-4 border-blue-400">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="lucide:wifi-off" class="text-2xl text-blue-600"></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-lg mb-2 text-blue-700">Cannot access app in browser</h3>
+              <p class="text-sm text-stone-600 mb-3">Firewall blocking the port or wrong IP address.</p>
+              <div class="bg-stone-100 rounded-xl p-4 border border-stone-200">
+                <p class="text-xs font-semibold text-stone-700 mb-2">Solution:</p>
+                <code class="text-sm text-green-700 font-mono block">sudo ufw allow PORT/tcp<br>ip addr show</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Issue 5 -->
+        <div class="glass-panel rounded-2xl p-6 border-l-4 border-purple-400">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="lucide:refresh-cw" class="text-2xl text-purple-600"></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-lg mb-2 text-purple-700">Container keeps restarting</h3>
+              <p class="text-sm text-stone-600 mb-3">Configuration error or missing environment variables.</p>
+              <div class="bg-stone-100 rounded-xl p-4 border border-stone-200">
+                <p class="text-xs font-semibold text-stone-700 mb-2">Solution:</p>
+                <code class="text-sm text-green-700 font-mono block">docker compose logs -f<br>docker inspect CONTAINER</code>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Issue 6 -->
+        <div class="glass-panel rounded-2xl p-6 border-l-4 border-green-400">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
+              <iconify-icon icon="lucide:database" class="text-2xl text-green-600"></iconify-icon>
+            </div>
+            <div class="flex-1">
+              <h3 class="font-semibold text-lg mb-2 text-green-700">Database connection failed</h3>
+              <p class="text-sm text-stone-600 mb-3">Database container not ready or wrong credentials.</p>
+              <div class="bg-stone-100 rounded-xl p-4 border border-stone-200">
+                <p class="text-xs font-semibold text-stone-700 mb-2">Solution:</p>
+                <code class="text-sm text-green-700 font-mono block">depends_on:<br>  - db<br># Check env variables</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Commands Reference -->
+      <div class="mt-12 glass-panel rounded-2xl p-8">
+        <h3 class="font-semibold text-xl mb-6 flex items-center gap-2">
+          <iconify-icon icon="lucide:terminal" class="text-brand-lime"></iconify-icon>
+          Essential Docker Commands Reference
+        </h3>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="p-4 bg-stone-100 rounded-xl border border-stone-200">
+            <p class="text-xs font-semibold text-stone-600 mb-2 uppercase">Start Services</p>
+            <code class="text-sm font-mono text-stone-900 block">docker compose up -d</code>
+          </div>
+          <div class="p-4 bg-stone-100 rounded-xl border border-stone-200">
+            <p class="text-xs font-semibold text-stone-600 mb-2 uppercase">View Logs</p>
+            <code class="text-sm font-mono text-stone-900 block">docker compose logs -f</code>
+          </div>
+          <div class="p-4 bg-stone-100 rounded-xl border border-stone-200">
+            <p class="text-xs font-semibold text-stone-600 mb-2 uppercase">Stop Services</p>
+            <code class="text-sm font-mono text-stone-900 block">docker compose down</code>
+          </div>
+          <div class="p-4 bg-stone-100 rounded-xl border border-stone-200">
+            <p class="text-xs font-semibold text-stone-600 mb-2 uppercase">Restart Service</p>
+            <code class="text-sm font-mono text-stone-900 block">docker compose restart app</code>
+          </div>
+          <div class="p-4 bg-stone-100 rounded-xl border border-stone-200">
+            <p class="text-xs font-semibold text-stone-600 mb-2 uppercase">Update Images</p>
+            <code class="text-sm font-mono text-stone-900 block">docker compose pull && docker compose up -d</code>
+          </div>
+          <div class="p-4 bg-stone-100 rounded-xl border border-stone-200">
+            <p class="text-xs font-semibold text-stone-600 mb-2 uppercase">List Containers</p>
+            <code class="text-sm font-mono text-stone-900 block">docker ps -a</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section Header -->
+  <section id="projects" class="py-20 bg-gradient-to-b from-stone-900 to-stone-800 relative overflow-hidden">
     <div class="absolute inset-0 opacity-20">
       <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(193,255,114,0.3) 1px, transparent 0); background-size: 40px 40px;"></div>
     </div>
     <div class="max-w-[1600px] mx-auto px-6 lg:px-12 relative">
       <div class="text-center mb-12">
-        <h2 class="font-display text-2xl lg:text-4xl font-semibold text-white mb-3">
-          What's Trending in 2026
+        <h2 class="font-display text-4xl lg:text-6xl font-semibold text-white mb-4">
+          Projects
         </h2>
-        <p class="text-stone-400 text-lg">Based on community surveys and deployment statistics [6]</p>
-      </div>
-      
-      <div class="flex flex-wrap justify-center gap-3">
-        <span class="px-4 py-2 bg-white/10 backdrop-blur text-white rounded-full text-sm flex items-center gap-2">
-          <iconify-icon icon="lucide:trending-up" class="text-brand-lime"></iconify-icon>
-          Komodo over Portainer
-        </span>
-        <span class="px-4 py-2 bg-white/10 backdrop-blur text-white rounded-full text-sm flex items-center gap-2">
-          <iconify-icon icon="lucide:trending-up" class="text-brand-lime"></iconify-icon>
-          Seerr for Media Discovery
-        </span>
-        <span class="px-4 py-2 bg-white/10 backdrop-blur text-white rounded-full text-sm flex items-center gap-2">
-          <iconify-icon icon="lucide:trending-up" class="text-brand-lime"></iconify-icon>
-          Traefik for Reverse Proxy
-        </span>
-        <span class="px-4 py-2 bg-white/10 backdrop-blur text-white rounded-full text-sm flex items-center gap-2">
-          <iconify-icon icon="lucide:trending-up" class="text-brand-lime"></iconify-icon>
-          Homepage for Dashboards
-        </span>
-        <span class="px-4 py-2 bg-white/10 backdrop-blur text-white rounded-full text-sm flex items-center gap-2">
-          <iconify-icon icon="lucide:trending-up" class="text-brand-lime"></iconify-icon>
-          Immich for Photos
-        </span>
+        <p class="text-stone-400 text-lg lg:text-xl">These are the collection of 15 trending self-hosted applications for 2026.</p>
       </div>
     </div>
   </section>
@@ -499,7 +822,7 @@
   </section>
   
   <!-- Projects Grid -->
-  <section id="ideas" class="py-12 relative grid-bg">
+  <section id="ideas" class="py-16 relative grid-bg">
     <div class="max-w-[1600px] mx-auto px-6 lg:px-12">
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid">
         <!-- Projects will be inserted here by JS -->
@@ -559,7 +882,7 @@
         </div>
       </div>
       <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-stone-500 text-sm">©️ 2025 HomeLab Ideas - By NishNinjaDev, also known as NishantGits</p>
+        <p class="text-stone-500 text-sm">©️ 2026 HomeLab Ideas - By NishNinjaDev, also known as NishantGits</p>
         <div class="flex items-center gap-4">
           <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
             <iconify-icon icon="lucide:github" class="text-lg"></iconify-icon>
@@ -589,16 +912,18 @@
         trending: true,
         compose: `services:
   komodo:
-    image: ghcr.io/moghtech/komodo:latest
+    image: ghcr.io/moghtech/komodo:stable
     container_name: komodo
     restart: unless-stopped
     ports:
-      - "8120:8080"
+      - "8120:8120"
     environment:
       - KOMODO_HOST=http://your-server:8120
+      - KOMODO_PASSKEY=your-secure-passkey
+      - KOMODO_WEBHOOK_SECRET=your-webhook-secret
     volumes:
       - ./komodo-data:/repo
-      - /var/run/docker.sock:/var/run/docker.sock`
+      - /var/run/docker.sock:/var/run/docker.sock:ro`
       },
       {
         id: 2,
@@ -608,7 +933,6 @@
         difficulty: "easy",
         tags: ["Media", "Requests"],
         port: "5055",
-        trending: true,
         compose: `services:
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
@@ -620,7 +944,8 @@
       - ./config:/app/config
     environment:
       - LOG_LEVEL=debug
-      - TZ=America/New_York`
+      - TZ=America/New_York
+      - PORT=5055`
       },
       {
         id: 3,
@@ -633,7 +958,7 @@
         trending: true,
         compose: `services:
   homepage:
-    image: ghcr.io/benphelps/homepage:latest
+    image: ghcr.io/gethomepage/homepage:latest
     container_name: homepage
     restart: unless-stopped
     ports:
@@ -641,7 +966,9 @@
     volumes:
       - ./config:/app/config
       - ./images:/app/public/images
-      - /var/run/docker.sock:/var/run/docker.sock:ro`
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - TZ=America/New_York`
       },
       {
         id: 4,
@@ -653,17 +980,25 @@
         port: "80,443",
         compose: `services:
   traefik:
-    image: traefik:v3.0
+    image: traefik:v3.1
     container_name: traefik
     restart: unless-stopped
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
     ports:
       - "80:80"
       - "443:443"
       - "8081:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik.yml:/etc/traefik/traefik.yml
-      - ./acme.json:/acme.json`
+      - ./traefik.yml:/etc/traefik/traefik.yml:ro
+      - ./letsencrypt:/letsencrypt
+    environment:
+      - TZ=America/New_York`
       },
       {
         id: 5,
@@ -676,18 +1011,18 @@
         trending: true,
         compose: `services:
   immich-server:
-    image: ghcr.io/immich-app/immich-server:latest
+    image: ghcr.io/immich-app/immich-server:release
     container_name: immich-server
     restart: unless-stopped
     ports:
-      - "2283:3001"
+      - "2283:2283"
     volumes:
       - ./library:/usr/src/app/upload
       - /etc/localtime:/etc/localtime:ro
     environment:
       - DB_HOSTNAME=immich-db
       - DB_USERNAME=immich
-      - DB_PASSWORD=your-password
+      - DB_PASSWORD=your-secure-password
       - DB_DATABASE_NAME=immich
       - REDIS_HOSTNAME=immich-redis
     depends_on:
@@ -696,16 +1031,18 @@
 
   immich-db:
     image: tensorchord/pgvecto-rs:pg14-v0.2.0
+    container_name: immich-db
     restart: unless-stopped
     volumes:
       - ./pgdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_USER=immich
-      - POSTGRES_PASSWORD=your-password
+      - POSTGRES_PASSWORD=your-secure-password
       - POSTGRES_DB=immich
 
   immich-redis:
-    image: redis:6.2-alpine
+    image: redis:7-alpine
+    container_name: immich-redis
     restart: unless-stopped`
       },
       {
@@ -718,13 +1055,15 @@
         port: "3001",
         compose: `services:
   uptime-kuma:
-    image: louislam/uptime-kuma:1
+    image: louislam/uptime-kuma:latest
     container_name: uptime-kuma
     restart: unless-stopped
     ports:
       - "3001:3001"
     volumes:
-      - ./uptime-kuma-data:/app/data`
+      - ./uptime-kuma-data:/app/data
+    environment:
+      - TZ=America/New_York`
       },
       {
         id: 7,
@@ -746,7 +1085,8 @@
     environment:
       - ADMIN_TOKEN=your-secure-admin-token
       - SIGNUPS_ALLOWED=false
-      - DOMAIN=https://your-domain.com`
+      - DOMAIN=https://your-domain.com
+      - TZ=America/New_York`
       },
       {
         id: 8,
@@ -768,6 +1108,9 @@
       - /var/run/docker.sock:/var/run/docker.sock:ro
     environment:
       - APACHE_PORT=11000
+      - NEXTCLOUD_DATADIR=/mnt/ncdata
+      - SKIP_DOMAIN_VALIDATION=true
+      - TZ=America/New_York
 
 volumes:
   nextcloud_aio_mastercontainer:`
@@ -795,7 +1138,9 @@ volumes:
     environment:
       - PAPERLESS_URL=http://your-domain:8010
       - PAPERLESS_SECRET_KEY=your-secret-key-change-me
-      - PAPERLESS_TIME_ZONE=America/New_York`
+      - PAPERLESS_TIME_ZONE=America/New_York
+      - PAPERLESS_OCR_LANGUAGE=eng
+      - TZ=America/New_York`
       },
       {
         id: 10,
@@ -805,7 +1150,6 @@ volumes:
         difficulty: "medium",
         tags: ["Automation", "Trending"],
         port: "5678",
-        trending: true,
         compose: `services:
   n8n:
     image: n8nio/n8n:latest
@@ -821,7 +1165,8 @@ volumes:
       - N8N_PROTOCOL=https
       - NODE_ENV=production
       - WEBHOOK_URL=https://your-domain.com/
-      - GENERIC_TIMEZONE=America/New_York`
+      - GENERIC_TIMEZONE=America/New_York
+      - TZ=America/New_York`
       },
       {
         id: 11,
@@ -836,11 +1181,14 @@ volumes:
     image: prom/prometheus:latest
     container_name: prometheus
     restart: unless-stopped
-    volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
-      - ./prometheus-data:/prometheus
     ports:
       - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
 
   grafana:
     image: grafana/grafana:latest
@@ -852,6 +1200,8 @@ volumes:
       - ./grafana-data:/var/lib/grafana
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=your-admin-password
+    depends_on:
+      - prometheus
 
   loki:
     image: grafana/loki:latest
@@ -860,7 +1210,9 @@ volumes:
     ports:
       - "3100:3100"
     volumes:
-      - ./loki-data:/loki`
+      - ./loki-data:/loki
+    depends_on:
+      - prometheus`
       },
       {
         id: 12,
@@ -869,7 +1221,7 @@ volumes:
         icon: "lucide:shield-off",
         difficulty: "easy",
         tags: ["DNS", "Privacy"],
-        port: "8080",
+        port: "8085",
         compose: `services:
   pihole:
     image: pihole/pihole:latest
@@ -878,7 +1230,7 @@ volumes:
     ports:
       - "53:53/tcp"
       - "53:53/udp"
-      - "8080:80"
+      - "8085:80"
     environment:
       TZ: 'America/New_York'
       WEBPASSWORD: 'your-secure-password'
@@ -905,7 +1257,9 @@ volumes:
       - ./audiobooks:/audiobooks
       - ./podcasts:/podcasts
       - ./config:/config
-      - ./metadata:/metadata`
+      - ./metadata:/metadata
+    environment:
+      - TZ=America/New_York`
       },
       {
         id: 14,
@@ -928,7 +1282,9 @@ volumes:
     environment:
       - DOCKER_ENABLE_SECURITY=false
       - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=true
-      - SECURITY_CSRF_DISABLED=true`
+      - SECURITY_CSRF_DISABLED=true
+      - LANGS=en_US
+      - TZ=America/New_York`
       },
       {
         id: 15,
@@ -944,12 +1300,13 @@ volumes:
     container_name: tailscale
     restart: unless-stopped
     hostname: homelab
-    volumes:
-      - ./tailscale-data:/var/lib/tailscale
-      - /dev/net/tun:/dev/net/tun
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    volumes:
+      - ./tailscale-data:/var/lib/tailscale
     environment:
       - TS_AUTHKEY=your-auth-key-from-tailscale-console
       - TS_STATE_DIR=/var/lib/tailscale`
@@ -987,7 +1344,7 @@ volumes:
             </div>
           </div>
           
-          <h3 class="font-semibold text-xl mb-2 group-hover:text-brand-lime transition-colors">${project.name}</h3>
+          <h3 class="font-semibold text-xl mb-2 group-hover:text-stone-700 transition-colors">${project.name}</h3>
           <p class="text-stone-500 text-sm leading-relaxed mb-4 line-clamp-2">${project.description}</p>
           
           <div class="flex flex-wrap gap-2 mb-4">
@@ -1030,7 +1387,7 @@ volumes:
                 <h2 class="font-display text-2xl lg:text-3xl font-semibold text-white">${project.name}</h2>
                 ${project.trending ? '<span class="px-2 py-1 bg-brand-lime text-stone-900 rounded-full text-xs font-bold">2026 Trending</span>' : ''}
               </div>
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 flex-wrap">
                 <span class="tag difficulty-${project.difficulty}">
                   <iconify-icon icon="${project.difficulty === 'easy' ? 'lucide:zap' : project.difficulty === 'medium' ? 'lucide:git-branch' : 'lucide:cpu'}" class="icon text-xs"></iconify-icon>
                   ${project.difficulty}
@@ -1044,68 +1401,288 @@ volumes:
           </button>
         </div>
         
+        <!-- Tabs Navigation -->
+        <div class="px-6 lg:px-8 py-4 border-b border-white/10 flex gap-2 overflow-x-auto">
+          <button onclick="switchTab('overview')" class="modal-tab active" data-tab="overview">
+            <iconify-icon icon="lucide:info" class="inline-block mr-1"></iconify-icon>
+            Overview
+          </button>
+          <button onclick="switchTab('compose')" class="modal-tab" data-tab="compose">
+            <iconify-icon icon="lucide:code" class="inline-block mr-1"></iconify-icon>
+            Docker Compose
+          </button>
+          <button onclick="switchTab('deploy')" class="modal-tab" data-tab="deploy">
+            <iconify-icon icon="lucide:rocket" class="inline-block mr-1"></iconify-icon>
+            Deploy
+          </button>
+          <button onclick="switchTab('access')" class="modal-tab" data-tab="access">
+            <iconify-icon icon="lucide:globe" class="inline-block mr-1"></iconify-icon>
+            Access
+          </button>
+        </div>
+        
         <div class="p-6 lg:p-8">
-          <p class="text-stone-300 text-lg mb-8 leading-relaxed">${project.description}</p>
-          
-          <div class="flex items-center justify-between mb-6">
-            <h3 class="font-semibold text-white text-lg flex items-center gap-2">
-              <iconify-icon icon="lucide:code" class="text-brand-lime"></iconify-icon>
-              docker-compose.yml
-            </h3>
-            <button onclick="copyConfig(event, ${project.id})" class="copy-btn px-5 py-2.5 bg-brand-lime text-stone-900 rounded-xl text-sm font-semibold hover:bg-brand-lime/90 transition-all flex items-center gap-2">
-              <iconify-icon icon="lucide:copy"></iconify-icon>
-              <span class="btn-text">Copy Config</span>
-            </button>
-          </div>
-          
-          <div class="code-block rounded-2xl overflow-hidden">
-            <div class="bg-[#0d1117] px-4 py-3 border-b border-white/10 flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+          <!-- Overview Tab -->
+          <div id="tab-overview" class="tab-content active">
+            <div class="grid lg:grid-cols-3 gap-6">
+              <div class="lg:col-span-2 space-y-6">
+                <div class="info-card">
+                  <h3 class="font-semibold text-white mb-3 flex items-center gap-2">
+                    <iconify-icon icon="lucide:file-text" class="text-brand-lime"></iconify-icon>
+                    Description
+                  </h3>
+                  <p class="text-stone-300 leading-relaxed">${project.description}</p>
+                </div>
+                
+                <div class="info-card">
+                  <h3 class="font-semibold text-white mb-4 flex items-center gap-2">
+                    <iconify-icon icon="lucide:layers" class="text-brand-lime"></iconify-icon>
+                    Features
+                  </h3>
+                  <div class="grid md:grid-cols-2 gap-3">
+                    <div class="flex items-center gap-2 text-stone-300 text-sm">
+                      <iconify-icon icon="lucide:check-circle-2" class="text-brand-lime"></iconify-icon>
+                      Self-hosted & Private
+                    </div>
+                    <div class="flex items-center gap-2 text-stone-300 text-sm">
+                      <iconify-icon icon="lucide:check-circle-2" class="text-brand-lime"></iconify-icon>
+                      Docker Ready
+                    </div>
+                    <div class="flex items-center gap-2 text-stone-300 text-sm">
+                      <iconify-icon icon="lucide:check-circle-2" class="text-brand-lime"></iconify-icon>
+                      Easy to Update
+                    </div>
+                    <div class="flex items-center gap-2 text-stone-300 text-sm">
+                      <iconify-icon icon="lucide:check-circle-2" class="text-brand-lime"></iconify-icon>
+                      Open Source
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span class="text-xs text-stone-500 font-mono">docker-compose.yml</span>
+              
+              <div class="space-y-4">
+                <div class="info-card text-center">
+                  <div class="w-14 h-14 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <iconify-icon icon="lucide:globe-2" class="text-2xl text-blue-400"></iconify-icon>
+                  </div>
+                  <p class="text-xs text-stone-500 uppercase mb-1">Port</p>
+                  <p class="text-2xl font-bold text-white">${project.port}</p>
+                </div>
+                
+                <div class="info-card text-center">
+                  <div class="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <iconify-icon icon="lucide:cpu" class="text-2xl text-purple-400"></iconify-icon>
+                  </div>
+                  <p class="text-xs text-stone-500 uppercase mb-1">Difficulty</p>
+                  <p class="text-lg font-semibold text-white capitalize">${project.difficulty}</p>
+                </div>
+                
+                <div class="info-card text-center">
+                  <div class="w-14 h-14 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <iconify-icon icon="lucide:hard-drive" class="text-2xl text-green-400"></iconify-icon>
+                  </div>
+                  <p class="text-xs text-stone-500 uppercase mb-1">Data Persistence</p>
+                  <p class="text-sm text-stone-300">Volumes mapped to local directories</p>
+                </div>
+              </div>
             </div>
-            <pre id="config-${project.id}" class="overflow-x-auto"><code>${formatYaml(project.compose)}</code></pre>
           </div>
           
-          <div class="mt-8 p-6 bg-gradient-to-br from-white/5 to-white/[0.02] rounded-2xl border border-white/10">
-            <h4 class="font-semibold text-white mb-4 flex items-center gap-2">
+          <!-- Docker Compose Tab -->
+          <div id="tab-compose" class="tab-content">
+            <div class="flex items-center justify-between mb-6">
+              <h3 class="font-semibold text-white text-lg flex items-center gap-2">
+                <iconify-icon icon="lucide:code-2" class="text-brand-lime"></iconify-icon>
+                docker-compose.yml
+              </h3>
+              <button onclick="copyConfig(event, ${project.id})" class="copy-btn px-5 py-2.5 bg-brand-lime text-stone-900 rounded-xl text-sm font-semibold hover:bg-brand-lime/90 transition-all flex items-center gap-2">
+                <iconify-icon icon="lucide:copy"></iconify-icon>
+                <span class="btn-text">Copy Config</span>
+              </button>
+            </div>
+            
+            <div class="code-block rounded-2xl overflow-hidden">
+              <div class="bg-[#0d1117] px-4 py-3 border-b border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <span class="text-xs text-stone-500 font-mono">docker-compose.yml</span>
+              </div>
+              <pre id="config-${project.id}" class="overflow-x-auto"><code>${formatYaml(project.compose)}</code></pre>
+            </div>
+            
+            <div class="mt-6 p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+              <div class="flex items-start gap-3">
+                <iconify-icon icon="lucide:lightbulb" class="text-blue-400 text-xl mt-0.5 flex-shrink-0"></iconify-icon>
+                <div class="text-sm text-stone-300">
+                  <strong class="text-white">Pro Tip:</strong> Save this file as <code class="bg-black/30 px-2 py-0.5 rounded text-blue-300 font-mono">docker-compose.yml</code> in a dedicated folder for this application.
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Deploy Tab -->
+          <div id="tab-deploy" class="tab-content">
+            <h3 class="font-semibold text-white text-lg mb-6 flex items-center gap-2">
               <iconify-icon icon="lucide:terminal" class="text-brand-lime"></iconify-icon>
-              Quick Commands
-            </h4>
-            <div class="space-y-3">
-              <div class="flex items-center justify-between p-3 bg-black/30 rounded-xl group">
-                <code class="text-sm text-brand-lime font-mono">docker compose up -d</code>
-                <button onclick="copyCommand(this, 'docker compose up -d')" class="opacity-0 group-hover:opacity-100 transition-opacity text-stone-400 hover:text-white">
-                  <iconify-icon icon="lucide:copy" class="text-lg"></iconify-icon>
-                </button>
+              Deployment Steps
+            </h3>
+            
+            <div class="space-y-4">
+              <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-white mb-1">Create Project Directory</h4>
+                  <p class="text-sm text-stone-400 mb-2">Create a folder for your application</p>
+                  <div class="code-block rounded-lg overflow-hidden">
+                    <pre class="p-3 text-sm"><code>mkdir ${project.name.toLowerCase().replace(/\s+/g, '-')} && cd ${project.name.toLowerCase().replace(/\s+/g, '-')}</code></pre>
+                  </div>
+                </div>
               </div>
-              <div class="flex items-center justify-between p-3 bg-black/30 rounded-xl group">
-                <code class="text-sm text-brand-lime font-mono">docker compose logs -f</code>
-                <button onclick="copyCommand(this, 'docker compose logs -f')" class="opacity-0 group-hover:opacity-100 transition-opacity text-stone-400 hover:text-white">
-                  <iconify-icon icon="lucide:copy" class="text-lg"></iconify-icon>
-                </button>
+              
+              <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-white mb-1">Create Docker Compose File</h4>
+                  <p class="text-sm text-stone-400 mb-2">Create and edit the docker-compose.yml file</p>
+                  <div class="code-block rounded-lg overflow-hidden">
+                    <pre class="p-3 text-sm"><code>nano docker-compose.yml
+<span class="yaml-comment"># Paste the config, then Ctrl+O, Enter, Ctrl+X</span></code></pre>
+                  </div>
+                </div>
               </div>
-              <div class="flex items-center justify-between p-3 bg-black/30 rounded-xl group">
-                <code class="text-sm text-brand-lime font-mono">docker compose down</code>
-                <button onclick="copyCommand(this, 'docker compose down')" class="opacity-0 group-hover:opacity-100 transition-opacity text-stone-400 hover:text-white">
-                  <iconify-icon icon="lucide:copy" class="text-lg"></iconify-icon>
-                </button>
+              
+              <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-white mb-1">Start the Container</h4>
+                  <p class="text-sm text-stone-400 mb-2">Launch your application</p>
+                  <div class="code-block rounded-lg overflow-hidden">
+                    <pre class="p-3 text-sm"><code>docker compose up -d</code></pre>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-white mb-1">Check Logs (Optional)</h4>
+                  <p class="text-sm text-stone-400 mb-2">Verify everything is working correctly</p>
+                  <div class="code-block rounded-lg overflow-hidden">
+                    <pre class="p-3 text-sm"><code>docker compose logs -f</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-6 p-4 bg-gradient-to-br from-white/5 to-white/[0.02] rounded-2xl border border-white/10">
+              <h4 class="font-semibold text-white mb-4 flex items-center gap-2">
+                <iconify-icon icon="lucide:command" class="text-brand-lime"></iconify-icon>
+                Quick Command Reference
+              </h4>
+              <div class="grid md:grid-cols-2 gap-3">
+                <div class="flex items-center justify-between p-3 bg-black/30 rounded-xl group">
+                  <code class="text-sm text-brand-lime font-mono">docker compose up -d</code>
+                  <button onclick="copyCommand(this, 'docker compose up -d')" class="opacity-0 group-hover:opacity-100 transition-opacity text-stone-400 hover:text-white">
+                    <iconify-icon icon="lucide:copy" class="text-lg"></iconify-icon>
+                  </button>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-black/30 rounded-xl group">
+                  <code class="text-sm text-brand-lime font-mono">docker compose logs -f</code>
+                  <button onclick="copyCommand(this, 'docker compose logs -f')" class="opacity-0 group-hover:opacity-100 transition-opacity text-stone-400 hover:text-white">
+                    <iconify-icon icon="lucide:copy" class="text-lg"></iconify-icon>
+                  </button>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-black/30 rounded-xl group">
+                  <code class="text-sm text-brand-lime font-mono">docker compose down</code>
+                  <button onclick="copyCommand(this, 'docker compose down')" class="opacity-0 group-hover:opacity-100 transition-opacity text-stone-400 hover:text-white">
+                    <iconify-icon icon="lucide:copy" class="text-lg"></iconify-icon>
+                  </button>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-black/30 rounded-xl group">
+                  <code class="text-sm text-brand-lime font-mono">docker compose restart</code>
+                  <button onclick="copyCommand(this, 'docker compose restart')" class="opacity-0 group-hover:opacity-100 transition-opacity text-stone-400 hover:text-white">
+                    <iconify-icon icon="lucide:copy" class="text-lg"></iconify-icon>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           
-          <div class="mt-6 p-4 bg-brand-lime/10 border border-brand-lime/20 rounded-xl">
-            <div class="flex items-start gap-3">
-              <iconify-icon icon="lucide:info" class="text-brand-lime text-xl mt-0.5 flex-shrink-0"></iconify-icon>
-              <div class="text-sm text-stone-300">
-                <strong class="text-white">Access:</strong> 
+          <!-- Access Tab -->
+          <div id="tab-access" class="tab-content">
+            <div class="grid lg:grid-cols-2 gap-6">
+              <div class="info-card">
+                <h3 class="font-semibold text-white mb-4 flex items-center gap-2">
+                  <iconify-icon icon="lucide:monitor" class="text-brand-lime"></iconify-icon>
+                  Access Your Application
+                </h3>
+                
                 ${project.port === 'N/A' 
-                  ? 'This service runs as a mesh VPN - access via Tailscale network.' 
-                  : `Open <code class="bg-black/30 px-2 py-0.5 rounded text-brand-lime font-mono">http://your-vps-ip:${project.port}</code> in your browser after starting the container.`
+                  ? `<div class="p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
+                      <div class="flex items-start gap-3">
+                        <iconify-icon icon="lucide:alert-circle" class="text-yellow-400 text-xl mt-0.5 flex-shrink-0"></iconify-icon>
+                        <div class="text-sm text-stone-300">
+                          <strong class="text-white">VPN Service:</strong> This service runs as a mesh VPN. Access it through your Tailscale network using the hostname <code class="bg-black/30 px-2 py-0.5 rounded text-yellow-300 font-mono">homelab</code>.
+                        </div>
+                      </div>
+                    </div>`
+                  : `<div class="space-y-4">
+                      <div class="p-4 bg-green-500/10 border border-green-500/20 rounded-xl">
+                        <p class="text-sm text-stone-400 mb-2">Local Access URL</p>
+                        <code class="text-lg text-green-400 font-mono block">http://localhost:${project.port}</code>
+                      </div>
+                      <div class="p-4 bg-blue-500/10 border border-blue-500/20 rounded-xl">
+                        <p class="text-sm text-stone-400 mb-2">Network Access URL</p>
+                        <code class="text-lg text-blue-400 font-mono block">http://your-vps-ip:${project.port}</code>
+                      </div>
+                    </div>`
                 }
+              </div>
+              
+              <div class="space-y-4">
+                <div class="info-card">
+                  <h4 class="font-semibold text-white mb-3 flex items-center gap-2">
+                    <iconify-icon icon="lucide:shield" class="text-brand-lime"></iconify-icon>
+                    Firewall Configuration
+                  </h4>
+                  <p class="text-sm text-stone-400 mb-3">Open the port in your firewall to allow external access:</p>
+                  <div class="code-block rounded-lg overflow-hidden">
+                    <pre class="p-3 text-sm"><code><span class="yaml-comment"># For UFW (Ubuntu/Debian)</span>
+sudo ufw allow ${project.port}/tcp
+
+<span class="yaml-comment"># For firewalld (CentOS/RHEL)</span>
+sudo firewall-cmd --permanent --add-port=${project.port}/tcp
+sudo firewall-cmd --reload</code></pre>
+                  </div>
+                </div>
+                
+                <div class="info-card">
+                  <h4 class="font-semibold text-white mb-3 flex items-center gap-2">
+                    <iconify-icon icon="lucide:lock" class="text-brand-lime"></iconify-icon>
+                    Security Tips
+                  </h4>
+                  <ul class="space-y-2 text-sm text-stone-300">
+                    <li class="flex items-start gap-2">
+                      <iconify-icon icon="lucide:check" class="text-brand-lime mt-0.5 flex-shrink-0"></iconify-icon>
+                      Change default passwords immediately
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <iconify-icon icon="lucide:check" class="text-brand-lime mt-0.5 flex-shrink-0"></iconify-icon>
+                      Use HTTPS with reverse proxy (Traefik/Nginx)
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <iconify-icon icon="lucide:check" class="text-brand-lime mt-0.5 flex-shrink-0"></iconify-icon>
+                      Keep containers updated regularly
+                    </li>
+                    <li class="flex items-start gap-2">
+                      <iconify-icon icon="lucide:check" class="text-brand-lime mt-0.5 flex-shrink-0"></iconify-icon>
+                      Enable two-factor authentication if available
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -1114,6 +1691,24 @@ volumes:
       
       modal.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+    }
+
+    // Tab switching function
+    function switchTab(tabName) {
+      // Update tab buttons
+      document.querySelectorAll('.modal-tab').forEach(tab => {
+        if (tab.dataset.tab === tabName) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+      
+      // Update tab content
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.getElementById('tab-' + tabName).classList.add('active');
     }
 
     // Close Modal
