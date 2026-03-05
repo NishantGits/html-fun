@@ -75,9 +75,9 @@ Simply open any HTML file in your preferred web browser. No build process or dep
 # Clone Repository
 git clone https://github.com/NishantGits/html-fun
 
-# Open any project in your browser
-open "Aether Civilization.html"
-# or
+# Open the "HTML" folder
+cd HTML
+# Open a html file in your browser
 open "HomeLabProjects.html"
 ```
 
