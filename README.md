@@ -12,7 +12,7 @@ A futuristic, immersive landing page for a sky-based civilization featuring:
 - Responsive layout with mobile optimization
 - Sci-fi themed color palette and typography
 
-### 📊 [GC RESEARCH](GC%20RESEARCH.html)
+### 📊 [GlobalEcon](GlobalEcon.html)
 A professional data visualization and research dashboard including:
 - Interactive charts and graphs
 - Clean, modern UI with Tailwind CSS
